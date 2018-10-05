@@ -1,0 +1,11 @@
+##Euler 16
+def solve(n):
+    nb=2**n
+    ch=str(nb)
+    sum=0
+    for i in range(len(ch)):
+        sum+=int(ch[i])
+    return sum
+
+assert solve(15)==26
+print(solve(1000))
