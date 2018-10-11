@@ -1,0 +1,39 @@
+#Euler 55
+
+def palindrome(n):
+    chaine=str(n)
+    for i in range(len(chaine)):
+        if chaine[i]!=chaine[len(chaine)-1-i]:
+            return False
+    return True
+    
+def inv(n):
+    chaine=str(n)
+    ch=''
+    for i in range(len(chaine)-1,-1,-1):
+        ch=ch+chaine[i]
+    return int(ch)
+    
+print(inv(1551))
+
+def solve():
+    total=0
+    compteur=0
+    x=1
+    y=x
+    while x<10000:
+        if palindrome(y):
+            compteur=0
+            y=x+1
+            x+=1
+        else:
+            y=y+inv(y)
+            compteur+=1
+        if compteur>50:
+            total+=1
+            compteur=0
+            x+=1
+        
+    return total
+
+print(solve())
